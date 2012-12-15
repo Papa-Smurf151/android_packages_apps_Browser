@@ -46,6 +46,7 @@
     <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
     <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application   android:name="Browser"
                    android:label="@string/application_name"
@@ -261,6 +262,14 @@
                  <action android:name="android.intent.action.PRELOAD"/>
                  <data android:scheme="http" />
              </intent-filter>
+         </receiver>
+         
+         <receiver android:enabled="true" android:name=".BootUpReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
          </receiver>
 
         <provider android:name=".provider.SnapshotProvider"
