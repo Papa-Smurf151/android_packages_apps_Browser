@@ -14,6 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.android.browser
+
 
 import android.content.BroadcastReceiver;  
 import android.content.Context;  
@@ -25,12 +27,10 @@ import android.util.Log;
 public class BootUpReceiver extends BroadcastReceiver{
 
     @Override
-    public void onReceive(Context context, Intent intent) {
-
-        if(intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)){
-            Intent i = new Intent(context, BrowserActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
+        public void onReceive(Context context, Intent intent) {
+                Intent i = new Intent(context, BrowserActivity.class);  
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);  
         }
-    }
+
 }
