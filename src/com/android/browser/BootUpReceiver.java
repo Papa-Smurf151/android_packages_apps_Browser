@@ -20,6 +20,7 @@ package com.android.browser;
 import android.content.BroadcastReceiver;  
 import android.content.Context;  
 import android.content.Intent;
+import android.net.Uri;
 
 public class BootUpReceiver extends BroadcastReceiver{
 
