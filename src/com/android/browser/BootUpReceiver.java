@@ -17,17 +17,20 @@
 package com.android.browser;
 
 
-import android.content.BroadcastReceiver;  
-import android.content.Context;  
+import android.content.BroadcastReceiver; 
 import android.content.Intent;
+import android.content.Context;
 import android.net.Uri;
+import com.android.browser.BrowserActivity;
+import android.util.Log;
 
 public class BootUpReceiver extends BroadcastReceiver{
 
-    @Override
-        public void onReceive(Context context, Intent intent) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
-                startActivity(browserIntent);
-        }
-
-}
+@Override
+    public void onReceive(Context context, Intent intent) {
+           Intent mIntent=new Intent();
+           mIntent.setAction("com.android.browser.BrowserActivity");
+           mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+           context.startActivity(mIntent);
+    }  
+}     

@@ -198,6 +198,15 @@
         <activity android:name="ComboViewActivity">
         </activity>
 
+        <receiver android:enabled="true" android:name=".BootUpReceiver"
+             android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+             <intent-filter>
+                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                 <category android:name="android.intent.category.DEFAULT" />
+                 <category android:name="android.intent.category.BROWSABLE" />
+             </intent-filter>
+        </receiver>
+
         <!-- Bookmark thumbnail homescreen widget -->
         <receiver
             android:name=".widget.BookmarkThumbnailWidgetProvider"
@@ -248,7 +257,7 @@
             android:name=".homepages.HomeProvider"
             android:authorities="com.android.browser.home"
             android:readPermission="com.android.browser.permission.READ_HISTORY_BOOKMARKS"
-            android:exported="false" />
+            android:exported="false" />        
 
         <receiver android:name=".AccountsChangedReceiver">
             <intent-filter>
@@ -262,14 +271,6 @@
                  <action android:name="android.intent.action.PRELOAD"/>
                  <data android:scheme="http" />
              </intent-filter>
-         </receiver>
-         
-         <receiver android:enabled="true" android:name=".BootUpReceiver"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
          </receiver>
 
         <provider android:name=".provider.SnapshotProvider"
